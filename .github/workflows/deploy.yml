@@ -17,12 +17,12 @@ jobs:
           node-version: 16
       - run: npm ci
       - name: Deploy To Pterodactyl
-        uses: outsparkled/pterodactyl-power-action@v0.1.0
+        uses: outsparkled/pterodactyl-power-action@vae9dcbc3153ff5b13000dffc080d382be3bfee7a
         with:
           # The API endpoint of the Pterodactyl server e.g. "https://pterodactyl.file.properties/
           panel-url: ${{ secrets.PANEL_URL }}
           # The ID of the Pterodactyl server
-          server-id: ${{ secrets.API_KEY }}
+          server-id: ${{ secrets.SERVER_ID }}
           # The API key of the Pterodactyl server
-          bearer-token: ${{ secrets.SERVER_ID }}
+          bearer-token: ${{ secrets.API_KEY }}
           power-action: restart
