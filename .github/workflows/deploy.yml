@@ -17,7 +17,7 @@ jobs:
           node-version: 16
       - run: npm ci
       - name: Deploy To Pterodactyl
-        uses: outsparkled/pterodactyl-power-action@vae9dcbc3153ff5b13000dffc080d382be3bfee7a
+        uses: outsparkled/pterodactyl-power-action@ecde83d8a036fd1d3e14b9b42113994cd20af307
         with:
           # The API endpoint of the Pterodactyl server e.g. "https://pterodactyl.file.properties/
           panel-url: ${{ secrets.PANEL_URL }}
