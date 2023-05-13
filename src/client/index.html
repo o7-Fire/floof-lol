@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width">
+    <title>floof.lol</title>
+    <script src="https://rawgit.com/kawanet/msgpack-lite/master/dist/msgpack.min.js"></script>
+
+    <link href="style.css" rel="stylesheet" type="text/css" type='text/css'/>
+    <link rel="icon" type="image/png" href="./gfx/florrfavicon.png" sizes="32x32">
+</head>
+<body>
+<canvas id="canvas"></canvas>
+<div class="gui">
+    <div class="nameDiv">
+        <input class="name" type="text" autocomplete="off" spellcheck="false" maxlength="100" placeholder="Your name here"><!-- maxlength 200 -->
+    </div>
+    <div class="chatDiv">
+        <input class="chat" type="text" autocomplete="off" spellcheck="false" maxlength="100" placeholder="Type here to chat!"><!-- maxlength 200 -->
+    </div>
+    <div class="chat-div">
+    </div>
+
+    <div class="mobile">
+        <button class="attackButton" type="button">
+            Attack
+        </button>
+        <button class="defendButton" type="button">
+            Defend
+        </button>
+    </div>
+</div>
+
+<script src="util.js"></script>
+<script src="chat.js"></script>
+<script src="petal.js"></script>
+<script src="petalSlot.js"></script>
+<script src="player.js"></script>
+<script src="enemy.js"></script>
+<script src="render.js"></script>
+<script src="index.js"></script>
+<script src="input.js"></script>
+</body>
+</html>

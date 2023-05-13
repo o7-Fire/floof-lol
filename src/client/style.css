@@ -1,0 +1,246 @@
+@import url('https://fonts.googleapis.com/css2?family=Ubuntu');
+
+body {
+    background-color: #181818;
+    border: 0;
+	margin: 0;
+	padding: 0;
+    color: white;
+}
+.ui-layer{
+    position: absolute;
+    z-index: 1;
+}
+* {
+    font-weight: 700;
+    font-family: 'Ubuntu', sans-serif;
+    overflow: 'hidden';
+}
+
+#servermsg {
+    color: red;
+}
+
+#title {
+    font-size: 80px;
+    -webkit-text-stroke: 3.5px black;
+    margin: 10px;
+    font-weight: 800;
+    user-select: none;
+}
+
+#menu, #game {
+    position: absolute;
+    background-color: #20a464 !important;
+    top: 0px;
+    left: 0px;
+    bottom: 0px;
+    right: 0px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
+
+#petalui {
+    position: fixed;
+    top: 90%;
+    left: 20%;
+    width: 60%;
+    height: 5%;
+    display: flex;
+    margin: auto;
+    align-items: center;
+    justify-content: center;
+}
+
+/* .petalcontainer {
+    color: white;
+    height: calc(100% - 6px);
+    position: absolute;
+    aspect-ratio: 1;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.common {
+    background-color: #7eef6d;
+    border: 3px solid #66c258;
+}
+
+.petaltext {
+    -webkit-text-stroke: 0.5px black;
+    text-align: center;
+    overflow: hidden;
+}
+
+.petal-slot {
+    margin: 1px;
+    color: grey;
+    height: 100%;
+    aspect-ratio: 1;
+    background-color: #cccccc;
+    border: 3px solid #a5a5a5;
+} */
+
+canvas {
+    position: absolute;
+    left: 0;
+    top: 0;
+    background-color: #20a464 !important;
+}
+
+.chatDiv {
+    z-index: 100;
+}
+
+/*chat input field*/
+.chat {
+    position: fixed;
+    left: -1px;
+    bottom: 5px;
+    width: 365px;
+/*     height: 30px; */
+    transform-origin: center center;
+    border: none;
+    outline: none;
+    color: white;
+    padding: 2px;
+    caret-color: white;
+    font-size: 1rem;
+    background: rgba( 34, 34, 34, .1 );
+    border-radius: 3px;
+}
+
+.chat:focus {
+    background-color: white;
+    /*border: 3px solid black;*/
+    outline: 3px solid black;
+    color: black;
+    caret-color: black;
+}
+
+.chat-message {
+    color: white;
+    font-size: 1rem;
+    background: transparent;
+    padding: 0px;
+    margin: 0;
+    overflow-wrap: break-word;
+    width: 100%;
+    user-select: none;
+}
+
+.nameDiv {
+    z-index: 1;
+}
+
+.name {
+    position: fixed;
+    left: 100px;
+    bottom: 650px;
+    width: 365px;
+    height: 30px; 
+    transform-origin: center center;
+    border: none;
+    outline: none;
+    color: white;
+    padding: 2px;
+    caret-color: white;
+    font-size: 1rem;
+    background: rgba( 34, 34, 34, .1 );
+    border-radius: 3px;
+}
+
+.name:focus {
+    background-color: white;
+    /*border: 3px solid black;*/
+    outline: 3px solid black;
+    color: black;
+    caret-color: black;
+}
+
+.name-message {
+    color: white;
+    font-size: 1rem;
+    background: transparent;
+    padding: 0px;
+    margin: 0;
+    overflow-wrap: break-word;
+    width: 100%;
+    user-select: none;
+}
+
+.gui {
+    position: absolute;
+    left: 0;
+    top: 0;
+}
+
+.chat-div {
+    position: fixed;
+    left: -1px;
+    bottom: 2rem;/*calc(1rem+30px);*/
+    width: 365px;
+    height: 10rem;
+/*     background: rgba(141, 141, 141, 0.205);
+    background: linear-gradient(to right, rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0));  */
+    display: flex;
+    flex-direction: column-reverse;
+    overflow-y: auto;
+    padding: 2px;
+    overflow-x: hidden;
+    font-size: 10px;
+    background: rgba( 34, 34, 34, .1 );
+}
+
+.chat-div::-webkit-scrollbar {
+    width: 10px;
+    background-color: rgba(24, 135, 79, 0.8);
+}
+
+.chat-div::-webkit-scrollbar-thumb {
+    background-color: rgba(24, 24, 24, 0.4);
+}
+
+input::-webkit-input-placeholder {
+     color: black; /*Change the placeholder color*/
+     opacity: 0.2; /*Change the opacity between 0 and 1*/
+}
+
+input::hover {
+    cursor: text;
+}
+
+.attackButton {
+    position: fixed;
+    right: 0;
+    transform: translate(-20%, 10%);
+    border-radius: 20%;
+    background: rgba( 34, 34, 34, .1 );
+    width: 10%;
+    aspect-ratio: 1;
+    color: white;
+    border: 3px solid rgba( 34, 34, 34, .3 );
+    text-align: center;
+    font-size: 2vw;
+    visibility: hidden;
+}
+
+.defendButton {
+    position: fixed;
+    right: 0;
+    transform: translate(-140%, 10%);
+    border-radius: 20%;
+    background: rgba( 34, 34, 34, .1 );
+    width: 10%;
+    aspect-ratio: 1;
+    color: white;
+    border: 3px solid rgba( 34, 34, 34, .3 );
+    text-align: center;
+    font-size: 2vw;
+    visibility: hidden;
+}
