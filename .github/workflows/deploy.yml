@@ -19,7 +19,7 @@ jobs:
       - name: Deploy To Pterodactyl
         # You may pin to the exact commit or the version.
         # uses: Itzbenz/deploy-to-pterodactyl@aedc174331b47957ea579457707a22ee3b2daa79
-        uses: Itzbenz/deploy-to-pterodactyl@v0.1
+        uses: Itzbenz/deploy-to-pterodactyl@d215b5390d3b065d4764a3d70e5420673049f7c6
         with:
           # The source file/folder to deploy
           source: dist/
