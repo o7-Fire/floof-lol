@@ -22,9 +22,9 @@ jobs:
         uses: Itzbenz/deploy-to-pterodactyl@d215b5390d3b065d4764a3d70e5420673049f7c6
         with:
           # The source file/folder to deploy
-          source: dist/
+          source: .
           # The destination folder to deploy to
-          target: .
+          target: ./
           # The API endpoint of the Pterodactyl server e.g. "https://pterodactyl.file.properties/
           panel-url: ${{ secrets.PANEL_URL }}
           # The ID of the Pterodactyl server
