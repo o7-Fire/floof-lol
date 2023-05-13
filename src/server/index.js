@@ -3,7 +3,9 @@ const WebSocket = require('ws');
 const uuid = require("uuid");
 const path = require("path");
 const app = express();
+const fs = require("fs");
 const http = require("http");
+const https = require("https");
 const wss = new WebSocket.Server({ noServer: true });
 const msgpack = require("msgpack-lite");
 
@@ -51,15 +53,14 @@ var iid = 0;
 app.use(express.static("src/client"));
 
 app.get("/", function (req, res) {
-    console.log("a");
   res.sendFile("index.html");
 });
 // message handling
 let processMsg = {
-    //name: (name, player) => {
-    //    player.playerName = name.name;
+    name: (name, player) => {
+        player.playerName = name.name;
         //console.log(player);
-    //},
+    },
     chat: (msg, player) => {
         msg.chat = msg.chat.trim();
         if(msg.chat.length > 100)return; // fix line 80
@@ -132,8 +133,12 @@ wss.on("connection", ws=>{
 	})
 })
 
-const port = process.env.PORT || 3001; 
-const srvr = app.listen(port, () =>{
+const port = process.env.PORT || 6601; 
+const srvr = https.createServer({
+  key: fs.readFileSync('./privkey.pem'),
+  cert: fs.readFileSync('./fullchain.pem'),
+}, app);
+srvr.listen(port, () => {
     console.log(`Server started on port ${port}`);
 });
 
