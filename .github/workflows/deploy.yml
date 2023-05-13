@@ -16,8 +16,22 @@ jobs:
         with:
           node-version: 16
       - run: npm ci
-      - uses: hwalker928/ptero-gitsync@v1.0
+      - name: Deploy To Pterodactyl
+        # You may pin to the exact commit or the version.
+        # uses: Itzbenz/deploy-to-pterodactyl@aedc174331b47957ea579457707a22ee3b2daa79
+        uses: Itzbenz/deploy-to-pterodactyl@v0.1
         with:
+          # The source file/folder to deploy
+          source: dist/
+          # The destination folder to deploy to
+          target: .
+          # The API endpoint of the Pterodactyl server e.g. "https://pterodactyl.file.properties/
           panel-url: ${{ secrets.PANEL_URL }}
-          api-key: ${{ secrets.API_KEY }}
-          server-id: ${{ secrets.SERVER_ID }}
+          # The ID of the Pterodactyl server
+          server-id: ${{ secrets.API_KEY }}
+          # The API key of the Pterodactyl server
+          api-key: ${{ secrets.SERVER_ID }}
+          # Whether to restart the server after deploying the plugin
+          restart: true
+          # Force kill the server if it is running for faster restart
+          force-restart: true
