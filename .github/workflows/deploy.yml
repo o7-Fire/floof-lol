@@ -4,6 +4,8 @@ name: Node.js Deploy
 on:
   release:
     types: [created]
+  push:
+    branches: [ "main" ] # I love pushing to prod
 
 jobs:
   build:
