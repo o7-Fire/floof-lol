@@ -133,11 +133,19 @@ wss.on("connection", ws=>{
 	})
 })
 
-const port = process.env.PORT || 6601; 
-const srvr = https.createServer({
-  key: fs.readFileSync('./privkey.pem'),
-  cert: fs.readFileSync('./fullchain.pem'),
-}, app);
+const port = process.env.PORT || 6601;
+let srvr ;
+
+if(fs.existsSync('./privkey.pem') && fs.existsSync('./fullchain.pem')) {
+
+    srvr = https.createServer({
+        key: fs.readFileSync('./privkey.pem'),
+        cert: fs.readFileSync('./fullchain.pem'),
+    }, app);
+}else{
+    console.log("WARNING: HTTPS not enabled. This is not suitable for production. See README.md for more info.");
+    srvr = http.createServer(app);
+}
 srvr.listen(port, () => {
     console.log(`Server started on port ${port}`);
 });
@@ -150,7 +158,7 @@ srvr.on('upgrade', (request, socket, head) => {
 
 global.send = function(msg,id){
     clients[id].send(msgpack.encode(msg));
-} 
+}
 
 global.broadcastInRoom = function({x, y}, msg){
     for(let id in getPlayersInRoom({x, y})){
@@ -174,7 +182,7 @@ setInterval(() => {
     if(lag > 1000/15){
         console.log(`Server is lagging behind by ${lag}ms`);
     }
-}, 1000/15)// we purposely simulate very jittery so that we NEVER lag :D client will fill in the info 
+}, 1000/15)// we purposely simulate very jittery so that we NEVER lag :D client will fill in the info
 
 function simulate(dt) {
     forEachRoom((x, y) => {
